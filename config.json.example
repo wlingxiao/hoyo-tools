@@ -1,0 +1,29 @@
+{
+  "zzz": {
+    "uid": "1111",
+    "enable": true,
+    "cdkeys": [
+      "NIJIZZZ",
+      "1",
+      "https://zenless.hoyoverse.com/redemption?code=NIJIZZZ"
+    ]
+  },
+  "genshin": {
+    "uid": "2222",
+    "enable": false,
+	"cdkeys": [
+      "NIJIZZZ",
+      "1",
+      "https://zenless.hoyoverse.com/redemption?code=NIJIZZZ"
+    ]
+  },
+  "hsr": {
+    "uid": "3333",
+    "enable": false,
+	"cdkeys": [
+      "NIJIZZZ",
+      "1",
+      "https://zenless.hoyoverse.com/redemption?code=NIJIZZZ"
+    ]
+  }
+}
