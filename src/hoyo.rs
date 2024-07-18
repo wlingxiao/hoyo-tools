@@ -6,7 +6,7 @@ use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use reqwest::{Client, Method, Request, Url};
 use reqwest::cookie::CookieStore;
 use reqwest::header::HeaderValue;
-use rookie::enums::Cookie;
+use rookie::enums::CookieToString;
 use serde::{Deserialize, Serialize};
 use serde::de::DeserializeOwned;
 
@@ -154,22 +154,18 @@ fn get_cookie_str(url: &Url) -> String {
     }
     let cookies = rookie::chrome(Some(vec![parent_domain.to_string(), host.to_string()]))
         .unwrap();
-    let new_cookies = cookies.iter()
-        .filter(|c| is_valid_cookie(c))
-        .collect::<Vec<&Cookie>>();
-    let cookie_str = cookie_to_string(&new_cookies);
+    let mut new_cookies = Vec::new();
+    for c in cookies {
+        if is_valid_cookie(&c) {
+            new_cookies.push(c);
+        }
+    }
+    let cookie_str = new_cookies.to_string();
     log::debug!("{}/{}: {}", parent_domain, host, &cookie_str);
     cookie_str
 }
 
-fn cookie_to_string(v: &Vec<&Cookie>) -> String {
-    v.iter()
-        .filter(|c| is_valid_cookie(c))
-        .map(|c| format!("{}={}", c.name, c.value))
-        .collect::<Vec<String>>().join(";")
-}
-
-fn is_valid_cookie(c: &Cookie) -> bool {
+fn is_valid_cookie(c: &rookie::enums::Cookie) -> bool {
     match c.expires {
         None => { false }
         Some(expires) => {
