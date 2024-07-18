@@ -1,4 +1,4 @@
-- 崩铁、原神、绝区零自动每日签到和批量使用兑换码的小工具。使用[]()读取 `chrome` 浏览器的 `cookie` 然后调用 `HoyoLab` 的接口实现的。
+- 崩铁、原神、绝区零自动每日签到和批量使用兑换码的小工具。使用 [rookie](https://github.com/thewh1teagle/rookie) 读取 `chrome` 浏览器的 `cookie` 然后调用 `HoyoLab` 的接口实现的。
 - 使用方法：执行 `cargo build --release` 生成可执行文件。`config.json.example` 里面有需要配置的参数，复制一份修改文件名为 `config.json` 和编译好的程序放在一个目录下面执行就行了。
 - 最近学了一点 `rust` 就尝试做了个小工具来耍耍。说起来以前对 `scala` 的编译速度颇为不满，又占内存又占 cpu，吭呲吭呲半天都编译不完。学了 `rust`之后，我要诚挚地对 `scala` 说声抱歉，你编译真的超快的
 - 这么一个小工具引用了 200 多个 `crate` ，编译的中间产物有 4 个多G，以后谁再说 `node_modules` 占用磁盘多的，我上去就把 `cargo` 的 `target` 糊他脸上。
